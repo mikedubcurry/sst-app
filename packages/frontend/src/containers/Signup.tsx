@@ -47,7 +47,9 @@ export default function Signup() {
             setIsLoading(false);
             setNewUser(newUser)
         } catch (e) {
-            if (e.code === 'UsernameExistsException') {
+            const error = e as unknown as { message: string; code: string };
+
+            if (error && error.code === 'UsernameExistsException') {
                 const newUser = await Auth.resendSignUp(fields.email);
                 setIsLoading(false);
                 setNewUser(newUser)

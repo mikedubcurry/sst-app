@@ -1,4 +1,5 @@
 const config = {
+    MAX_ATTACHMENT_SIZE: 5000000,
     s3: {
         REGION: import.meta.env.VITE_REGION,
         BUCKET: import.meta.env.VITE_BUCKET,
